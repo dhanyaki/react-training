@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
+import Counter from "./Counter";
 
 class UnMount extends React.Component {
   componentWillUnmount() {
@@ -64,6 +65,9 @@ class App extends React.Component {
         >
           hide child
         </button>
+        <div className="counter">
+          <Counter />
+        </div>
       </div>
     );
   }
