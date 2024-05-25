@@ -1,26 +1,36 @@
 import React, { useState } from "react";
 
 function Props(props) {
-  const [name, setName] = useState("samba");
-  const [age] = useState(25);
+  const [names, setNames] = useState("");
+  const _names = names.split(",");
   return (
     <>
-      <div>
-        {name} {age} {props.gender}
-      </div>
-      <PropChild {...{ name, setName }} />
+      <input
+        value={names}
+        onChange={(e) => {
+          setNames(e.target.value);
+        }}
+      />
+      <PropChild _names={_names}/>
+      {/* <div>
+        <ul style={{ listStyle: "none" }}>
+          {_names.map((name) => {
+            return <li>{name}</li>;
+          })}
+        </ul>
+      </div> */}
     </>
   );
 }
-function PropChild({ name, setName }) {
+function PropChild({ _names }) {
   return (
-    <input
-      name="name"
-      value={name}
-      onChange={(e) => {
-        setName(e.target.value);
-      }}
-    />
+    <div>
+        <ul style={{ listStyle: "none" }}>
+          {_names.map((name) => {
+            return <li>{name}</li>;
+          })}
+        </ul>
+      </div>
   );
 }
 
