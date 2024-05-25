@@ -1,7 +1,7 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
 import Counter from "./Counter";
+import BasicFun from "./BasicFun";
 
 class UnMount extends React.Component {
   componentWillUnmount() {
@@ -68,6 +68,7 @@ class App extends React.Component {
         </button>
         <div className="counter">
           <Counter />
+          <BasicFun />
         </div>
       </div>
     );
