@@ -2,12 +2,13 @@ import "./App.css";
 import React from "react";
 import Counter from "./Counter";
 import BasicFun from "./BasicFun";
+import Props from "./Props";
 
 class UnMount extends React.Component {
   componentWillUnmount() {
     console.log("component unmount");
   }
-  
+
   render() {
     return <h1>UnMount component</h1>;
   }
@@ -69,6 +70,7 @@ class App extends React.Component {
         <div className="counter">
           <Counter />
           <BasicFun />
+          <Props {...{ name: "samba", age: "25", gender: "male" }} />
         </div>
       </div>
     );
