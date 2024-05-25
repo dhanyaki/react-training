@@ -7,6 +7,7 @@ class UnMount extends React.Component {
   componentWillUnmount() {
     console.log("component unmount");
   }
+  
   render() {
     return <h1>UnMount component</h1>;
   }
