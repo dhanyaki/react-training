@@ -4,6 +4,7 @@ import Counter from "./Counter";
 import BasicFun from "./BasicFun";
 import Props from "./Props";
 import Display from "./Display";
+import ConditionalRendering from "./ConditionalRendering";
 
 class UnMount extends React.Component {
   componentWillUnmount() {
@@ -77,6 +78,9 @@ class App extends React.Component {
           <Props {...{ name: "samba", age: "25", gender: "male" }} />
           <h4>display example:</h4>
           <Display />
+
+          <h4>ConditionalRendering</h4>
+          <ConditionalRendering show = {true}/>
         </div>
       </div>
     );
