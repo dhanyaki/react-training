@@ -3,6 +3,7 @@ import React from "react";
 import Counter from "./Counter";
 import BasicFun from "./BasicFun";
 import Props from "./Props";
+import PropChild from "./PropChild";
 
 class UnMount extends React.Component {
   componentWillUnmount() {
@@ -70,6 +71,7 @@ class App extends React.Component {
         <div className="counter">
           <Counter />
           <BasicFun />
+          <PropChild/>
           <Props {...{ name: "samba", age: "25", gender: "male" }} />
         </div>
       </div>
