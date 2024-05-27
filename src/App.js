@@ -3,6 +3,7 @@ import React from "react";
 import Counter from "./Counter";
 import BasicFun from "./BasicFun";
 import Props from "./Props";
+import Display from "./Display";
 
 class UnMount extends React.Component {
   componentWillUnmount() {
@@ -68,9 +69,14 @@ class App extends React.Component {
           hide child
         </button>
         <div className="counter">
+          <h4>couter in class component: </h4>
           <Counter />
+          <h4>counter in functinal component: </h4>
           <BasicFun />
+          <h4>props example:</h4>
           <Props {...{ name: "samba", age: "25", gender: "male" }} />
+          <h4>display example:</h4>
+          <Display />
         </div>
       </div>
     );
