@@ -9,6 +9,26 @@ export default class Counter extends Component {
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
   }
+  static getDerivedStateFromProps(props, state) {
+    //updting the initial state with props
+    console.log("getDerivedStateFromProps");
+    // return { name: props.name };
+  }
+  shouldComponentUpdate() {
+    //this will tells whether component has to update or not
+    console.log("should component update");
+    return true;
+  }
+  componentDidMount() {
+    //for any action or updation after the render
+    console.log("component did mount");
+  }
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log("previous values", prevProps.name, prevState);
+  }
+  componentDidUpdate() {
+    console.log("component did update");
+  }
   increment() {
     if (this.state.counter + 1 > 10) {
       this.setState({ counter: 1 });
@@ -28,8 +48,12 @@ export default class Counter extends Component {
   render() {
     return (
       <>
-        <button onClick={this.increment}>+1</button>
-        <button onClick={this.decrement}>-1</button>
+        <button className="btn btn-primary" onClick={this.increment}>
+          +1
+        </button>
+        <button className="btn btn-primary" onClick={this.decrement}>
+          -1
+        </button>
         <p>{this.state.counter}</p>
       </>
     );
