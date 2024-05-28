@@ -7,6 +7,7 @@ import Display from "./Display";
 import PropChild from "./PropChild";
 import ConditionalRendering from "./ConditionalRendering";
 import BmiCal from "./BmiCal";
+import CounterCart from "./CounterCart";
 
 
 class UnMount extends React.Component {
@@ -86,6 +87,8 @@ class App extends React.Component {
           <h4>ConditionalRendering</h4>
           <ConditionalRendering show = {true}/> */}
                     <BmiCal />
+
+                    <CounterCart />
                 </div>
             </div>
         );
