@@ -74,10 +74,10 @@ class App extends React.Component {
         </button> */}
                 <div className="counter">
                     {/* <h4>couter in class component: </h4>
-          <Counter />
+          <Counter /> */}
           <h4>counter in functinal component: </h4>
           <BasicFun />
-          <h4>props example:</h4>
+          {/*<h4>props example:</h4>
           <Props {...{ name: "samba", age: "25", gender: "male" }} />
           <h4>display example:</h4>
           <Display />
