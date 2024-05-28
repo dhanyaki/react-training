@@ -7,7 +7,7 @@ export default function BasicFun() {
       setCounter(1);
     } else {
       setCounter(counter + 1);
-      setCounter(counter + 2);
+      setCounter(counter + 1);
     }
   };
   const decrement = () => {
