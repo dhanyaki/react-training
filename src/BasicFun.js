@@ -27,9 +27,9 @@ export default function BasicFun({setCart}) {
   };
   return (
     <div>
-      <span>{counter}</span>
-      <button onClick={increment}>+1</button>
-      <button onClick={decrement}>-1</button>
+      <span className={counter>0?"bg-warning":"bg-info"}>{counter}</span>
+      <button className="btn btn-success m-2" onClick={increment}>+1</button>
+      <button className="btn btn-danger m-2 " onClick={decrement}>-1</button>
       
     </div>
   );

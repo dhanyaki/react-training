@@ -76,8 +76,8 @@ class App extends React.Component {
           hide child
         </button>
         <div className="counter">
-          <Counter />
-          <BasicBootstrap />
+          <BmiCal/>
+          <CounterCart/>
         </div>
       </div>
     );
