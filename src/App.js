@@ -1,7 +1,13 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
 import Counter from "./Counter";
+import BasicFun from "./BasicFun";
+import Props from "./Props";
+import Display from "./Display";
+import PropChild from "./PropChild";
+import ConditionalRendering from "./ConditionalRendering";
+import BmiCal from "./BmiCal";
+import CounterCart from "./CounterCart";
 import BasicBootstrap from "./basicBootstrap";
 
 class UnMount extends React.Component {
@@ -15,15 +21,33 @@ class UnMount extends React.Component {
 }
 
 class App extends React.Component {
-  constructor(props) {
-    //for declaring and intiating the state
-    super(props);
-    this.state = {
-      name: "Ram",
-      age: 19,
-      show: true,
+    constructor(props) {
+        //for declaring and intiating the state
+        super(props);
+        this.state = {
+            name: "Ram",
+            age: 19,
+            show: true,
+        };
+    }
+    static getDerivedStateFromProps(props, state) {
+        //updting the initial state with props
+        console.log("getDerivedStateFromProps");
+        // return { name: props.name };
+    }
+    shouldComponentUpdate() {
+        //this will tells whether component has to update or not
+        console.log("should component update");
+        return true;
+    }
+    componentDidMount() {
+        //for any action or updation after the render
+        console.log("component did mount");
+    }
+    handleClick = () => {
+        this.setState({ name: "rakesh", age: 19 });
     };
-  }
+  
 
   handleClick = () => {
     this.setState({ name: "rakesh", age: 19 });
@@ -52,8 +76,8 @@ class App extends React.Component {
           hide child
         </button>
         <div className="counter">
-          <Counter />
-          <BasicBootstrap />
+          <BmiCal/>
+          <CounterCart/>
         </div>
       </div>
     );

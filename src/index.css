@@ -1,3 +1,45 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: o;
+
+}
+.app{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+
+}
+.container{
+  box-shadow: 0px,0px,12px;
+  border-radius: 8px;
+  padding:1rem;
+  }
+
+  .input{
+ width: 100%;
+  font-size: 1.2rem;
+  padding: 8px,4px;
+  margin:8px,0px;
+  border-radius: 8px;
+}
+.btn{
+  align-items: center;
+  font-size:1.2rem ;
+  margin: 8px,0px;
+  padding: 8px,4px;
+  background-color: rgb(71, 205, 176);
+  color: antiquewhite;
+  border-radius: 8px;
+  border: 1px solid;
+  cursor:pointer;
+
+
+
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,3 +53,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+ 
+
