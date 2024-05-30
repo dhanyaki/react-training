@@ -2,10 +2,23 @@ import React, { useState } from "react";
 
 function Login() {
   const [formData, setFormData] = useState({});
-
+  
   const onChaneHandle = (event) => {
+    console.log(event.target);
     const name = event.target.name;
-    const value = event.target.value;
+    let value = event.target.value;
+    if(event.target.type=="checkbox")
+      {
+        value=!event.target.value;
+      }
+    if(event.target.checked)
+      {
+        
+        console.log(event.target.checked);
+        value=event.target.checked;
+      }
+      
+    //setFormData(event.target.checked);
     //{email:xy@xy.com, password:'xxxxx'}
     setFormData((prevData) => ({ ...prevData, [name]: value })); //{ password:'xxxxx', email:newValue}
   };
@@ -105,8 +118,8 @@ function Login() {
         </div>
         <div className="form-group mt-2">
           <div className="form-check">
-            <input className="form-check-input" type="checkbox" />
-            <label className="form-check-lable">Check me out</label>
+            <input className="form-check-input" type="checkbox"  name="checked"  defaultChecked={false} value={formData.checked||false}  onClick={onChaneHandle}/>
+            <label className="form-check-lable" >Check me out</label>
           </div>
         </div>
         <button className="btn btn-primary mt-2" type="submit">

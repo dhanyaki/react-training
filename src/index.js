@@ -6,11 +6,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Login from './Login';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App name="Rahul"/> */}
-    <Login />
+  <Login/>
   </React.StrictMode>
   
 );
