@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from "react";
+ import Modal from "./Modal";
+ import "./index.css";
 
 function ApiRequest() {
   const [data, setData] = useState();
   const [dummy, setDummyData] = useState();
+  const [showModal,setShowModal]=useState(false);
+
+  
   useEffect(() => {
+    
     fetch("https://api.restful-api.dev/objects")
+    
       .then((res) => res.json())
       .then((result) => {
         setData(result);
         setDummyData(result);
+        console.log("new object added");
+    
       })
       .catch((error) => console.log(error));
   }, []);
@@ -26,6 +35,9 @@ function ApiRequest() {
   return (
     <div className="container">
       <input type="text" onChange={filterData} className="form-control" />
+      <button  className="btn" onClick={()=>setShowModal(true)}> show modal</button>
+      {<Modal showModal={showModal} setShowModal={setShowModal}/>}
+     
       {data && (
         <table className="table table-bordered table-striped table-hover">
           <thead>
