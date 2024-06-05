@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useCustomButtons, useFetch } from "./CustomHook";
 
 function UseRef() {
   const count = useRef(0);
@@ -6,11 +7,15 @@ function UseRef() {
   const [_count, setCount] = useState(10);
   const inputRef = useRef();
   const prevVal = useRef();
+  const [primaryButton] = useCustomButtons();
+  const [data] = useFetch("https://api.restful-api.dev/objects")
   useEffect(() => {
     count.current = count.current + 1;
   });
+  
   useEffect(() => {
     inputRef.current.focus();
+    console.log('data',data);
   });
   useEffect(() => {
     prevVal.current = _count;
@@ -32,7 +37,7 @@ function UseRef() {
       <p>dummy: {dummyCount.current}</p>
       <p>ref: {count.current}</p>
       <p>Previous value: {prevVal.current}</p>
-
+      {primaryButton("primary button")}
       <input type="text" className="form-control mb-3" ref={inputRef} />
     </div>
   );
