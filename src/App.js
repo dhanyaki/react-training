@@ -9,6 +9,7 @@ import ConditionalRendering from "./ConditionalRendering";
 import BmiCal from "./BmiCal";
 import CounterCart from "./CounterCart";
 import BasicBootstrap from "./basicBootstrap";
+import Hooks from "./UseRef";
 
 class UnMount extends React.Component {
   componentWillUnmount() {
@@ -78,6 +79,7 @@ class App extends React.Component {
         <div className="counter">
           <BmiCal/>
           <CounterCart/>
+          <Hooks />
         </div>
       </div>
     );
