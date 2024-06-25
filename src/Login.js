@@ -2,29 +2,45 @@ import React, { useState } from "react";
 
 function Login() {
   const [formData, setFormData] = useState({});
-  
+  const [error,setError]=useState({})
   const onChaneHandle = (event) => {
     console.log(event.target);
     const name = event.target.name;
     let value = event.target.value;
-    if(event.target.type=="checkbox")
-      {
-        value=!event.target.value;
-      }
-    if(event.target.checked)
-      {
-        
-        console.log(event.target.checked);
-        value=event.target.checked;
-      }
-      
+    if (event.target.type == "checkbox") {
+      value = !event.target.value;
+    }
+    if (event.target.checked) {
+
+      console.log(event.target.checked);
+      value = event.target.checked;
+
+    }
+
     //setFormData(event.target.checked);
     //{email:xy@xy.com, password:'xxxxx'}
     setFormData((prevData) => ({ ...prevData, [name]: value })); //{ password:'xxxxx', email:newValue}
   };
   const submitHanler = (e) => {
     e.preventDefault();
+    const validationError = {}
+    if (!formData.email) {
+      validationError.email = "email is required"
+    }
+    
+   
+    if (!formData.password) {
+      validationError.password= "password is required"
+    }
+    else if (formData.password.length<6) {
+      validationError.password = "password should be atleast 6 char"
+    }
     console.log(formData);
+    setError(validationError)
+    if(Object.keys(validationError).length===0){
+
+      alert("form submitted successfully")
+    }
   };
   return (
     <div className="container">
@@ -33,13 +49,15 @@ function Login() {
           <div className="form-group col-md-6">
             <label>Email</label>
             <input
-              type="text"
+              type="email"
               className="form-control"
               placeholder="Email"
               name="email"
               onChange={onChaneHandle}
               value={formData.email || ""}
+              
             />
+            {error.email&&<span>{error.email}</span>}
           </div>
           <div className="form-group col-md-6">
             <label>Password</label>
@@ -51,6 +69,7 @@ function Login() {
               onChange={onChaneHandle}
               value={formData.password || ""}
             />
+            {error.password&&<span>{error.password}</span>}
           </div>
         </div>
         <div className="row mt-2">
@@ -118,7 +137,7 @@ function Login() {
         </div>
         <div className="form-group mt-2">
           <div className="form-check">
-            <input className="form-check-input" type="checkbox"  name="checked"  defaultChecked={false} value={formData.checked||false}  onClick={onChaneHandle}/>
+            <input className="form-check-input" type="checkbox" name="checked" defaultChecked={false} value={formData.checked || false} onClick={onChaneHandle} />
             <label className="form-check-lable" >Check me out</label>
           </div>
         </div>
